@@ -581,7 +581,7 @@ case "$MAP_TYPE" in
 		make_raid
 		;;
 	4)
-		echo lvm
+		echo "lvm W.I.P."
 		;;
 	5)
 		make_default
@@ -635,9 +635,10 @@ while [[ $# -gt 0 ]]; do
 		-p|--panel)
 cat << EOF >> /root/rc.local.sh
 sed -i '$d' /root/install_${2}.sh
-curl -k http://194.28.86.221/sh/install_${2}.sh -o /root/install_${2}.sh || wget --no-check-certificate http://194.28.86.221/sh/install_${2}.sh -O /root/install_${2}.sh
+curl -k http://2.2.2.2/sh/install_${2}.sh -o /root/install_${2}.sh || wget --no-check-certificate http://2.2.2.2/sh/install_${2}.sh -O /root/install_${2}.sh
 ( /bin/bash /root/install_${2}.sh >> /root/${2}_install 2>&1 ) &
 EOF
+#Replace 2.2.2.2 on your's server IP and put non-inetactive scripts install here
 			shift
 			shift
 			;;
